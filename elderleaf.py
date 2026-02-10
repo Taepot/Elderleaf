@@ -100,20 +100,6 @@ async def on_ready():
     print(f"Elderleaf has entered the hearth as {bot.user}")
 
 # ---------- COMMANDS ----------
-@bot.command()
-async def menu(ctx):
-    for category, items in MENU.items():
-        embed = discord.Embed(
-            title=f"Elderleaf’s {category}",
-            color=0x6B8E23
-        )
-        for item in items:
-            embed.add_field(
-                name=item["name"],
-                value=item["effect"],
-                inline=False
-            )
-        await ctx.send(embed=embed)
 
 @bot.command()
 async def drinks(ctx, *, choice=None):
@@ -140,6 +126,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
