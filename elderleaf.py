@@ -121,11 +121,14 @@ async def drinks(ctx, *, choice=None):
         await ctx.send("Tell me the name… or say `!drinks random`.")
         return
 
-    if choice.lower() == "ra
+        if choice.lower() == "random":
+        item = random.choice(ALL_ITEMS)
+
 
 
 # ---------- RUN BOT ----------
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
