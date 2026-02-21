@@ -122,9 +122,50 @@ MOODS = {
 # ---------- EVENTS ----------
 @bot.event
 async def on_ready():
+    await bot.tree.sync()
     print(f"Elderleaf has entered the hearth as {bot.user}")
 
 # ---------- COMMANDS ----------
+
+class DrinkSelect(discord.ui.Select):
+    def __init__(self):
+        options = []
+
+        for item in ALL_ITEMS[:25]:  # Discord limit is 25 options per menu
+            options.append(
+                discord.SelectOption(
+                    label=item["name"],
+                    description=item["effect"][:100]
+                )
+            )
+
+        super().__init__(
+            placeholder="Choose a drink from the hearth...",
+            min_values=1,
+            max_values=1,
+            options=options
+        )
+
+    async def callback(self, interaction: discord.Interaction):
+        selected_name = self.values[0]
+        item = LOOKUP.get(selected_name.lower())
+
+        line = random.choice(SERVE_LINES)
+        await interaction.response.send_message(
+            line.format(name=item["name"], effect=item["effect"])
+        )
+
+class DrinkView(discord.ui.View):
+    def __init__(self):
+        super().__init__(timeout=60)
+        self.add_item(DrinkSelect())
+
+@bot.tree.command(name="order", description="Order a drink from Elderleaf")
+async def order(interaction: discord.Interaction):
+    await interaction.response.send_message(
+        "The kettle hums softly. Choose your drink:",
+        view=DrinkView()
+    )
 
 @bot.command()
 async def speak(ctx, member: discord.Member = None):
@@ -195,6 +236,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
