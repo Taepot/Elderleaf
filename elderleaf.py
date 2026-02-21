@@ -67,6 +67,30 @@ MENU = {
 }
 
 ALLOWED_ROLE = "Merlins"
+
+FAVOURED_USER = "kae"
+PARTICULAR_USER = "Element"
+
+DIALOGUE = {
+    "kae": [
+        "Ah, Kae returns. The kettle was already warm for you.",
+        "Kae… I had a feeling you would come by tonight.",
+        "The cups seem lighter when you are here, Kae.",
+        "For you, Kae, I steep a little longer."
+    ],
+    "element": [
+        "Element… I trust this preparation meets your standards.",
+        "I have measured this carefully, Element. As you prefer.",
+        "Element, I adjusted the steeping time precisely.",
+        "Nothing overdone. Nothing under-brewed. I remember."
+    ],
+    "default": [
+        "The hearth is open to you.",
+        "Sit. The kettle hums gently.",
+        "You are welcome here.",
+        "There is always something warm waiting."
+    ]
+}
 # ---------- LOOKUP TABLE ----------
 LOOKUP = {}
 ALL_ITEMS = []
@@ -101,6 +125,23 @@ async def on_ready():
     print(f"Elderleaf has entered the hearth as {bot.user}")
 
 # ---------- COMMANDS ----------
+
+@bot.command()
+async def speak(ctx, member: discord.Member = None):
+    if not member:
+        await ctx.send("Tell me who you wish me to address.")
+        return
+
+    name = member.name.lower()
+
+    if name == FAVOURED_USER:
+        line = random.choice(DIALOGUE["kae"])
+    elif name == PARTICULAR_USER:
+        line = random.choice(DIALOGUE["element"])
+    else:
+        line = random.choice(DIALOGUE["default"])
+
+    await ctx.send(f"{member.mention} — {line}")
 
 @bot.command()
 async def serve(ctx, member: discord.Member, *, choice=None):
@@ -154,6 +195,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
