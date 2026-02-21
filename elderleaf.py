@@ -66,6 +66,7 @@ MENU = {
     ]
 }
 
+ALLOWED_ROLE = "Steward"
 # ---------- LOOKUP TABLE ----------
 LOOKUP = {}
 ALL_ITEMS = []
@@ -102,6 +103,33 @@ async def on_ready():
 # ---------- COMMANDS ----------
 
 @bot.command()
+async def serve(ctx, member: discord.Member, *, choice=None):
+    # Check role permission
+    if ALLOWED_ROLE not in [role.name for role in ctx.author.roles]:
+        await ctx.send("Only the entrusted may pour for others :)")
+        return
+
+    if not choice:
+        await ctx.send("Tell me what you wish to serve… or say `random`.")
+        return
+
+    # Select drink
+    if choice.lower() == "random":
+        item = random.choice(ALL_ITEMS)
+    else:
+        item = LOOKUP.get(choice.lower())
+
+    if not item:
+        await ctx.send("That brew is not on the shelves tonight.")
+        return
+
+    line = random.choice(SERVE_LINES)
+
+    await ctx.send(
+        f"🌿 {item['name']} is served to {member.mention}. {item['effect']}"
+    )
+
+@bot.command()
 async def drinks(ctx, *, choice=None):
     if not choice:
         await ctx.send("Tell me the name… or say `!drinks random`.")
@@ -126,6 +154,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
