@@ -175,9 +175,9 @@ async def say(ctx, member: discord.Member = None):
 
     name = member.name.lower()
 
-    if name == FAVOURED_USER:
+    if name == FAVOURED_USER:kae
         line = random.choice(DIALOGUE["kae"])
-    elif name == PARTICULAR_USER:
+    elif name == PARTICULAR_USER:Element
         line = random.choice(DIALOGUE["element"])
     else:
         line = random.choice(DIALOGUE["default"])
@@ -236,6 +236,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
