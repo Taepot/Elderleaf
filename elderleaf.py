@@ -168,7 +168,7 @@ async def order(interaction: discord.Interaction):
     )
 
 @bot.command()
-async def speak(ctx, member: discord.Member = None):
+async def say(ctx, member: discord.Member = None):
     if not member:
         await ctx.send("Tell me who you wish me to address.")
         return
@@ -236,6 +236,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
