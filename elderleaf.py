@@ -170,17 +170,36 @@ async def order(interaction: discord.Interaction):
 @bot.command()
 async def say(ctx, member: discord.Member = None):
     if not member:
-        await ctx.send("Tell me who you wish me to address.")
+        await ctx.send("Who are we addressing?")
         return
 
-    name = member.name.lower()
+    nickname = member.display_name
 
-    if name == FAVOURED_USER:
-        line = random.choice(DIALOGUE["kae"])
-    elif name == PARTICULAR_USER:
-        line = random.choice(DIALOGUE["element"])
+    # Kae (case-insensitive, forgiving)
+    if nickname.lower() == "kae":
+        line = random.choice([
+            "Welcome Kae. The kettle has been kept warm for you.",
+            "Kae! I was hoping you would come by today.",
+            "For you, Kae, the drinks are on the house.",
+            "Boy, masaya ba akong makita ka kae, masaya ka ba na makita ako?"
+        ])
+
+    # Element (EXACT case match required)
+    elif nickname == "Element":
+        line = random.choice([
+            "Element… I trust this preparation meets your standards.",
+            "I have measured this carefully, Element. As you prefer.",
+            "Element, I have adjusted the steeping time precisely.",
+            "I trust that we are off for a good start?"
+        ])
+
     else:
-        line = random.choice(DIALOGUE["default"])
+        line = random.choice([
+            "Our hearth is always open for you.",
+            "Come grab a sit. The kettle is humming gently.",
+            "Relax, make yourself at home here.",
+            "How is the AFKJ journey going?"
+        ])
 
     await ctx.send(f"{member.mention} — {line}")
 
@@ -236,6 +255,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
