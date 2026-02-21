@@ -66,7 +66,7 @@ MENU = {
     ]
 }
 
-ALLOWED_ROLE = "Steward"
+ALLOWED_ROLE = "Merlins"
 # ---------- LOOKUP TABLE ----------
 LOOKUP = {}
 ALL_ITEMS = []
@@ -154,6 +154,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
