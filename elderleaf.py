@@ -175,14 +175,14 @@ async def say(ctx, member: discord.Member = None):
 
     name = member.name.lower()
 
-    if name == FAVOURED_USER:kae
+    if name == FAVOURED_USER:
         line = random.choice(DIALOGUE["kae"])
-    elif name == PARTICULAR_USER:Element
+    elif name == PARTICULAR_USER:
         line = random.choice(DIALOGUE["element"])
     else:
         line = random.choice(DIALOGUE["default"])
 
-    await ctx.send(f"{member.display_name} — {line}")
+    await ctx.send(f"{member.mention} — {line}")
 
 @bot.command()
 async def serve(ctx, member: discord.Member, *, choice=None):
@@ -236,6 +236,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
