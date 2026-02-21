@@ -85,10 +85,11 @@ DIALOGUE = {
         "Nothing overdone. Nothing under-brewed. I remember."
     ],
     "default": [
-        "The hearth is open to you.",
-        "Sit. The kettle hums gently.",
-        "You are welcome here.",
-        "There is always something warm waiting."
+        "Our hearth is always open for you.",
+        "Come grab a sit. The kettle is humming gently.",
+        "Relax, make yourself at home here.",
+        "There is always something warm in the pot ready."
+        "How is the AFKJ going?",
     ]
 }
 # ---------- LOOKUP TABLE ----------
@@ -236,6 +237,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
