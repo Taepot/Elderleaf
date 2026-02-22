@@ -68,26 +68,7 @@ MENU = {
 
 ALLOWED_ROLE = "Merlins"
 
-DIALOGUE = {
-    "kae": [
-        "Hi Kae. The kettle was already warm for you.",
-        "Kae… I was hoping you would come by today.",
-        "For you, Kae, the drinks are on the house.",
-        "Boy, masaya ba akong makita ka kae, masaya ka ba na makita ako?"
-    ],
-    "element": [
-        "Element… I trust this preparation meets your standards.",
-        "I have measured this carefully, Element. As you prefer.",
-        "Element, I adjusted the steeping time precisely.",
-        "I trust that you shan't worry about giving off wrong first impressions?"
-    ],
-    "default": [
-        "Our hearth is always open for you.",
-        "Come grab a sit. The kettle is humming gently.",
-        "Relax, make yourself at home here.",
-        "How is the AFKJ journey going?"
-    ]
-}
+
 # ---------- LOOKUP TABLE ----------
 LOOKUP = {}
 ALL_ITEMS = []
@@ -268,6 +249,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
