@@ -68,9 +68,6 @@ MENU = {
 
 ALLOWED_ROLE = "Merlins"
 
-FAVOURED_USER = "kae"
-PARTICULAR_USER = "Element"
-
 DIALOGUE = {
     "kae": [
         "Hi Kae. The kettle was already warm for you.",
@@ -193,6 +190,22 @@ async def say(ctx, member: discord.Member = None):
             "I trust that we are off for a good start?"
         ])
 
+     elif nickname == "Lianne":
+        line = random.choice([
+            "Ma'am, your drink awaits!",
+            "The pale steed arrives from afar, ready to set the course of action.",
+            "Welcome to Amish Paradise, ma'am.",
+            "I... I've never tried karaoke in my life."
+        ])
+
+     elif nickname == "BumbleBee":
+        line = random.choice([
+            "Buzz buzz!",
+            "Please, do not buzz away just yet.",
+            "Honey from flowers and eepy by the pond.",
+            "It is time to rearrange... the furniture!"
+        ])
+
     else:
         line = random.choice([
             "Our hearth is always open for you.",
@@ -255,6 +268,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
