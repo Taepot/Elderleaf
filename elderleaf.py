@@ -187,6 +187,22 @@ async def say(ctx, member: discord.Member = None):
             "It is time to rearrange... the furniture!"
         ])
 
+    elif nickname == "graves":
+        line = random.choice([
+            "All hail the Lord of buttchaos!",
+            "Sir, it is a hansome cat.",
+            "That man... he just murdered that little teacup!",
+            "Time for... a pringle massage?"
+        ])
+
+    elif nickname == "victoria":
+        line = random.choice([
+            "Tell me, your many secrets. Just one...",
+            "Time for a spontaneous tea party?",
+            "What is good, my slime?",
+            "Tonyyyyy Chopppppperr!"
+        ])
+
     else:
         line = random.choice([
             "Our hearth is always open for you.",
@@ -249,6 +265,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
