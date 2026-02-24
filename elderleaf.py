@@ -182,9 +182,7 @@ async def say(ctx, member: discord.Member = None):
     elif nickname == "BumbleBee":
         line = random.choice([
             "Buzz buzz!",
-            "Please, do not buzz away just yet.",
             "Honey from flowers and eepy by the pond.",
-            "It is time to rearrange... the furniture!"
         ])
 
     elif nickname == "graves":
@@ -265,6 +263,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
