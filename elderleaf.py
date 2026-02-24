@@ -156,8 +156,8 @@ async def say(ctx, member: discord.Member = None):
     # Kae (case-insensitive, forgiving)
     if nickname.lower() == "kae":
         line = random.choice([
-            "Welcome Kae. The kettle has been kept warm for you.",
-            "Kae! I was hoping you would come by today.",
+            "Welcome Kae! what is the order of the day?",
+            "Kae, I was hoping you would come by today!",
             "For you, Kae, the drinks are on the house.",
             "Boy, masaya ba akong makita ka kae, masaya ka ba na makita ako?"
         ])
@@ -187,7 +187,7 @@ async def say(ctx, member: discord.Member = None):
 
     elif nickname == "graves":
         line = random.choice([
-            "All hail the Lord of buttchaos!",
+            "All hail the Lord of butt chaos!",
             "Sir, it is a hansome cat.",
             "That man... he just murdered that little teacup!",
             "Time for... a pringle massage?"
@@ -263,6 +263,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
