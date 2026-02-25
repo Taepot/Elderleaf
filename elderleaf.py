@@ -174,7 +174,7 @@ async def say(ctx, member: discord.Member = None):
     elif nickname == "Lianne":
         line = random.choice([
             "Ma'am, your drink awaits!",
-            "The pale steed arrives from afar, ready to set the course of action.",
+            "A letter for you ma'am addressed: Dear Mommy Whale Lady.",
             "Welcome to Amish Paradise, ma'am.",
             "I... I've never tried karaoke in my life."
         ])
@@ -182,14 +182,14 @@ async def say(ctx, member: discord.Member = None):
     elif nickname == "BumbleBee":
         line = random.choice([
             "Buzz buzz!",
-            "Honey from flowers and eepy by the pond.",
+            "Honey from flowers and eepy by the pond..",
         ])
 
     elif nickname == "graves":
         line = random.choice([
             "All hail the Lord of butt chaos!",
-            "Sir, it is a hansome cat.",
-            "That man... he just murdered that little teacup!",
+            "Care for a bowl of communal soup?",
+            "Once you pop, one cannot stop!",
             "Time for... a pringle massage?"
         ])
 
@@ -203,8 +203,8 @@ async def say(ctx, member: discord.Member = None):
 
     else:
         line = random.choice([
-            "Our hearth is always open for you.",
-            "Come grab a sit. The kettle is humming gently.",
+            "Your arrival has been foretold.",
+            "What is happening in the meme channel today?",
             "Relax, make yourself at home here.",
             "How is the AFKJ journey going?"
         ])
@@ -263,6 +263,7 @@ async def drinks(ctx, *, choice=None):
 
 import os
 bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 
 
